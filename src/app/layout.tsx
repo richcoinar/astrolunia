@@ -1,0 +1,13 @@
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+export const metadata: Metadata = {
+  title: {default:"Astro | Tarot, astrología y numerología",template:"%s | Astro"},
+  description:"Descubrí tu universo simbólico con Tarot interactivo y numerología. Próximamente carta astral con cálculos astronómicos.",
+  applicationName:"Astro", metadataBase: new URL("https://astro.publicalogratis.store"),
+  manifest:"/manifest.webmanifest", appleWebApp:{capable:true,title:"Astro",statusBarStyle:"black-translucent"},
+  icons:{icon:[{url:"/icons/icon-192.png",sizes:"192x192",type:"image/png"}],apple:"/icons/icon-192.png"},
+  robots:{index:false,follow:false}
+};
+export const viewport: Viewport = {width:"device-width",initialScale:1,themeColor:"#0c0b1c"};
+export default function RootLayout({children}:{children:React.ReactNode}) {return <html lang="es-AR"><body><ServiceWorkerRegister/>{children}</body></html>}
