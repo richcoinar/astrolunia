@@ -21,9 +21,12 @@ export default function AccountPanel({pending}:{pending:ReadingPayload|null}) {
   useEffect(()=>{
     // Recovery links created by Supabase carry type=recovery in the URL fragment.
     const isRecovery = new URLSearchParams(window.location.hash.slice(1)).get("type") === "recovery";
+    // Must run after hydration: window is unavailable during SSR.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if(isRecovery)setMode("new-password");
   },[]);
-  useEffect(()=>{setConsent(false)},[pending]);
+  const [consentFor,setConsentFor]=useState(pending);
+  if(consentFor!==pending){setConsentFor(pending);setConsent(false);}
   useEffect(()=>{
     const supabase=supabaseClient();if(!supabase)return;
     let active=true;
