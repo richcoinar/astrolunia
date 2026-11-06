@@ -13,7 +13,8 @@ create table if not exists public.astro_readings (
 );
 create index if not exists astro_readings_user_date_idx on public.astro_readings(user_id, created_at desc);
 alter table public.astro_readings enable row level security;
-revoke all on table public.astro_readings from anon;
+-- Supabase otorga por defecto todos los privilegios a anon/authenticated en tablas nuevas.
+revoke all on table public.astro_readings from anon, authenticated;
 grant select, insert, delete on table public.astro_readings to authenticated;
 do $$ begin
   if not exists (select 1 from pg_policies where schemaname = 'public' and tablename = 'astro_readings' and policyname = 'astro_readings_select_own') then
