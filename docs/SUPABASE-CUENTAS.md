@@ -1,9 +1,9 @@
 # Cuentas y consultas privadas — Etapa 0.3
 
-1. Crear un proyecto **nuevo** en https://supabase.com/dashboard, no reutilizar el de CRM u otros negocios.
+1. Abrir el proyecto EXISTENTE `bdhwkvlpnixfamsvjfco` en https://supabase.com/dashboard. Verificar que los objetos `astro_*` no colisionen con tablas ya existentes; no borrar nada.
 2. Supabase → SQL Editor → ejecutar `supabase/001_readings.sql`. Verificar que RLS esté activado.
 3. Supabase → Authentication → Providers → Email: habilitar Email y **confirmación por correo** para registros públicos. Configurar SMTP propio antes de lanzar públicamente.
-4. Authentication → URL Configuration: en local usar `http://localhost:3000` como Site URL; agregar `http://localhost:3000/**` en Redirect URLs, y el dominio final `https://astro.publicalogratis.store/**` cuando se publique. No usar comodines amplios de producción.
+4. Authentication → URL Configuration: en local usar `http://localhost:3000` como Site URL; agregar `http://localhost:3000/**` en Redirect URLs, y el dominio final `https://astrolunia.publicalogratis.store/**` cuando se publique. No usar comodines amplios de producción.
 5. Copiar `.env.example` como `.env.local`, configurar `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (publishable, NO secret/service_role).
 6. Reiniciar `npm run dev`. Visitar `#cuenta`, registrarse, confirmar correo e ingresar.
 7. Generar una tirada, marcar consentimiento y guardar. Cerrar sesión, iniciar de nuevo y revisar historial.

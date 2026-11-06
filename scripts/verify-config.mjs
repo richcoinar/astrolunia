@@ -1,0 +1,13 @@
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const env=readFileSync('.env.example','utf8');
+const config=readFileSync('src/lib/supabase.ts','utf8');
+const pkg=JSON.parse(readFileSync('package.json','utf8'));
+const host='https://bdhwkvlpnixfamsvjfco.supabase.co';
+assert.ok(env.includes(`NEXT_PUBLIC_SUPABASE_URL=${host}`));
+assert.ok(config.includes(host));
+assert.equal(pkg.name,'astrolunia');
+assert.ok(readFileSync('src/app/layout.tsx','utf8').includes('https://astrolunia.publicalogratis.store'));
+assert.ok(readFileSync('src/app/manifest.ts','utf8').includes('short_name:"Astrolunia"'));
+assert.ok(readFileSync('src/app/page.tsx','utf8').includes('ASTROLUNIA'));
+console.log('Configuración coherente: Astrolunia / richcoinar / Supabase asignado.');

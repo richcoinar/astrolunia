@@ -2,10 +2,10 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 export const metadata: Metadata = {
-  title: {default:"Astro | Tarot, astrología y numerología",template:"%s | Astro"},
+  title: {default:"Astrolunia | Tarot, astrología y numerología",template:"%s | Astrolunia"},
   description:"Descubrí tu universo simbólico con Tarot interactivo y numerología. Próximamente carta astral con cálculos astronómicos.",
-  applicationName:"Astro", metadataBase: new URL("https://astro.publicalogratis.store"),
-  manifest:"/manifest.webmanifest", appleWebApp:{capable:true,title:"Astro",statusBarStyle:"black-translucent"},
+  applicationName:"Astrolunia", metadataBase: new URL("https://astrolunia.publicalogratis.store"),
+  manifest:"/manifest.webmanifest", appleWebApp:{capable:true,title:"Astrolunia",statusBarStyle:"black-translucent"},
   icons:{icon:[{url:"/icons/icon-192.png",sizes:"192x192",type:"image/png"}],apple:"/icons/icon-192.png"},
   robots:{index:false,follow:false}
 };

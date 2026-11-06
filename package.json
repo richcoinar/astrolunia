@@ -1,6 +1,6 @@
 {
-  "name": "publicalogratis-astro-pwa",
-  "version": "0.3.0",
+  "name": "astrolunia",
+  "version": "1.0.0-alpha.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,14 +8,17 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
-    "check": "npm run test && npm run lint && npm run build"
+    "check": "npm run verify:config && npm run verify:brand && npm run test && npm run lint && npm run build",
+    "verify:config": "node scripts/verify-config.mjs",
+    "verify:brand": "node scripts/verify-brand.mjs"
   },
   "dependencies": {
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "lucide-react": "^0.468.0",
-    "@supabase/supabase-js": "^2.57.0"
+    "@supabase/supabase-js": "^2.57.0",
+    "astronomy-engine": "^2.1.19"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
